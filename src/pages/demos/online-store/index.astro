@@ -1,0 +1,24 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CTA from "../../../components/astro/CTA.astro";
+---
+<Base title="Nordic Threads" description="Scandinavian-inspired apparel with sustainable materials." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Nordic Threads' }]}>
+  <section class="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
+    <div class="space-y-6">
+      <h1 class="text-4xl font-bold" data-i18n="store.hero.title">Wardrobe essentials for northern climates.</h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-200" data-i18n="store.hero.subtitle">Nordic Threads curates slow-fashion pieces built to last. Transparent pricing with VAT, carbon-conscious shipping, and live stock indicators.</p>
+      <div class="flex flex-wrap gap-4">
+        <CTA href="/portfolio-sites/demos/online-store/shop/" label="Shop the collection" i18nKey="action.shopCollection" />
+        <CTA href="/portfolio-sites/demos/online-store/shipping-returns/" label="Shipping & returns" variant="secondary" i18nKey="action.shippingReturns" />
+      </div>
+    </div>
+    <aside class="rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900">
+      <h2 class="text-xl font-semibold" data-i18n="store.hero.asideHeading">Why choose Nordic Threads?</h2>
+      <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+        <li data-i18n="store.hero.bulletEthical">• Ethical supply chain with EU manufacturing</li>
+        <li data-i18n="store.hero.bulletVat">• VAT-inclusive pricing</li>
+        <li data-i18n="store.hero.bulletDelivery">• Free UK delivery over £150</li>
+      </ul>
+    </aside>
+  </section>
+</Base>

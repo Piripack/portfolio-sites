@@ -1,0 +1,44 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Contact RapidFix" description="Contact details for RapidFix Plumbing." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing', href: '/portfolio-sites/demos/service-business/' }, { label: 'Contact' }]}>
+  <section class="grid gap-8 md:grid-cols-2">
+    <div class="space-y-4">
+      <h1 class="text-3xl font-bold" data-i18n="serviceBusiness.contact.heading">Talk to a plumbing specialist</h1>
+      <p class="text-neutral-600 dark:text-neutral-200" data-i18n="serviceBusiness.contact.lead">Our control room is staffed 24/7. Call, WhatsApp, or complete the form for a rapid response.</p>
+      <ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-200">
+        <li><strong data-i18n="serviceBusiness.contact.phoneLabel">Phone:</strong> <a class="hover:underline" href="tel:+441617111111">+44 161 711 1111</a></li>
+        <li>
+          <strong data-i18n="serviceBusiness.contact.whatsappLabel">WhatsApp:</strong>
+          <a class="hover:underline" href="https://wa.me/441617111111" data-i18n="serviceBusiness.contact.whatsappAction">Chat instantly</a>
+        </li>
+        <li><strong data-i18n="serviceBusiness.contact.emailLabel">Email:</strong> <a class="hover:underline" href="mailto:hello@rapidfix.co.uk">hello@rapidfix.co.uk</a></li>
+        <li><strong data-i18n="serviceBusiness.contact.addressLabel">Address:</strong> 21 Swan Street, Manchester, M4 5JJ</li>
+      </ul>
+    </div>
+    <form class="space-y-4 rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900" action="https://formspree.io/f/maykyyrb" method="POST" data-analytics="form-rapidfix-contact">
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.name">Name</span>
+        <input required type="text" name="name" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.email">Email</span>
+        <input required type="email" name="email" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        Phone
+        <input type="tel" name="phone" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.message">Message</span>
+        <textarea required name="message" rows="4" class="rounded-md border border-neutral-300 px-3 py-2"></textarea>
+      </label>
+      <label class="sr-only" aria-hidden="true">
+        Do not fill this
+        <input type="text" name="company" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="text-sm" aria-live="polite"></div>
+      <button class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white" type="submit" data-i18n="serviceBusiness.contact.form.submit">Send message</button>
+    </form>
+  </section>
+</Base>

@@ -1,0 +1,40 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Contact La Terra" description="Get in touch with La Terra Café." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'La Terra Café', href: '/portfolio-sites/demos/restaurant/' }, { label: 'Contact' }]}>
+  <section class="grid gap-8 md:grid-cols-2">
+    <div class="space-y-4">
+      <h1 class="text-3xl font-bold" data-i18n="restaurant.contact.heading">Plan your visit</h1>
+      <p class="text-neutral-600 dark:text-neutral-200" data-i18n="restaurant.contact.lead">We&apos;d love to host your next brunch, dinner, or private event.</p>
+      <ul class="space-y-2 text-sm">
+        <li><strong data-i18n="restaurant.contact.phoneLabel">Phone:</strong> <a class="hover:underline" href="tel:+441612223334">+44 161 222 3334</a></li>
+        <li><strong data-i18n="restaurant.contact.emailLabel">Email:</strong> <a class="hover:underline" href="mailto:ciao@laterracafe.co.uk">ciao@laterracafe.co.uk</a></li>
+        <li><strong data-i18n="restaurant.contact.addressLabel">Address:</strong> 9 Spear Street, Manchester M1 1JA</li>
+      </ul>
+    </div>
+    <form class="space-y-4 rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900" action="https://formspree.io/f/moqgnwbo" method="POST" data-analytics="form-laterra-contact">
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.name">Name</span>
+        <input required type="text" name="name" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.email">Email</span>
+        <input required type="email" name="email" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="restaurant.contact.form.occasion">Occasion</span>
+        <input type="text" name="occasion" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.message">Message</span>
+        <textarea required name="message" rows="4" class="rounded-md border border-neutral-300 px-3 py-2"></textarea>
+      </label>
+      <label class="sr-only" aria-hidden="true">
+        Leave blank
+        <input type="text" name="extra" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="text-sm" aria-live="polite"></div>
+      <button class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white" type="submit" data-i18n="restaurant.contact.form.submit">Send enquiry</button>
+    </form>
+  </section>
+</Base>

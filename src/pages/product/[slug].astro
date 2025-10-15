@@ -1,0 +1,39 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getEntryBySlug } from "astro:content";
+import ProductAddButton from "../../components/react/ProductAddButton";
+import { getImage } from "../../data/media";
+
+const { slug } = Astro.params;
+const product = await getEntryBySlug('products', slug!);
+if (!product) throw new Error('Product not found');
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.data.title,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'GBP',
+    price: product.data.price,
+    availability: product.data.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
+  }
+};
+
+---
+const imageSrc = getImage(product.data.imageKey);
+
+<Base title={`${product.data.title} | Nordic Threads`} description={product.body} breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Nordic Threads', href: '/portfolio-sites/demos/online-store/' }, { label: 'Shop', href: '/portfolio-sites/demos/online-store/shop/' }, { label: product.data.title }]} structuredData={structuredData}>
+  <article class="grid gap-10 lg:grid-cols-2">
+    <img src={imageSrc} alt="" class="h-96 w-full rounded-3xl object-cover" loading="lazy" />
+    <div class="space-y-4">
+      <h1 class="text-3xl font-bold">{product.data.title}</h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-200">£{product.data.price.toFixed(2)} inc. VAT</p>
+      <p class="text-sm text-neutral-600 dark:text-neutral-300">Stock: {product.data.stock > 0 ? `${product.data.stock} available` : 'Sold out'}</p>
+      <ProductAddButton client:load id={product.slug} name={product.data.title} price={product.data.price} vatRate={product.data.vatRate} image={imageSrc} stock={product.data.stock} />
+      <section class="prose prose-neutral dark:prose-invert">
+        {product.body}
+      </section>
+    </div>
+  </article>
+</Base>

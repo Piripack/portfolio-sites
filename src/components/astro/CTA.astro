@@ -1,0 +1,16 @@
+---
+const { label = 'Get started', href = '#', variant = 'primary', icon = '', analytics, i18nKey } = Astro.props;
+const variantClasses = {
+  primary: 'bg-primary text-white hover:bg-secondary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-secondary transition-colors duration-200',
+  secondary: 'bg-white text-primary border border-primary hover:bg-primary/10',
+  ghost: 'bg-transparent text-primary hover:bg-primary/10'
+};
+---
+<a
+  href={href}
+  data-analytics={analytics}
+  class={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-wide ${variantClasses[variant]}`}
+>
+  {icon && <span aria-hidden="true" class="text-lg">{icon}</span>}
+  <span data-i18n={i18nKey}>{label}</span>
+</a>

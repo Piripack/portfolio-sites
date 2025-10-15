@@ -1,0 +1,12 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": "./portfolio-sites",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src", "scripts", "astro.config.mjs", "manifest.webmanifest"
+  ]
+}

@@ -1,0 +1,21 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import CTA from "../../../../components/astro/CTA.astro";
+---
+<Base title="Ramos Studio Demos" description="Explore demo projects from Ramos Digital Studio." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio', href: '/portfolio-sites/demos/agency/' }, { label: 'Demos' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="agency.demos.heading">Featured builds</h1>
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <h2 class="text-xl font-semibold" data-i18n="agency.demos.saasTitle">SaaS product launch</h2>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="agency.demos.saasDescription">Multi-step funnel built with Astro, capturing 1,200 leads in two weeks.</p>
+        <CTA href="/portfolio-sites/demos/service-business/" label="View" variant="ghost" />
+      </article>
+      <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <h2 class="text-xl font-semibold" data-i18n="agency.demos.restaurantTitle">Restaurant relaunch</h2>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="agency.demos.restaurantDescription">Menu filtering, open now badge, and booking form integration.</p>
+        <CTA href="/portfolio-sites/demos/restaurant/" label="View" variant="ghost" />
+      </article>
+    </div>
+  </section>
+</Base>

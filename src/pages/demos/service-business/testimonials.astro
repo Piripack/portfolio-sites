@@ -1,0 +1,22 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const testimonials = [
+  { name: 'Anya Patel', location: 'Chorlton', quote: 'Arrived within 20 minutes, explained the fix clearly, and tidied afterwards.' },
+  { name: 'Marcus Lee', location: 'Rochdale', quote: 'They handled a major leak overnight and kept me updated via WhatsApp.' },
+  { name: 'Millhouse Apartments', location: 'Manchester city centre', quote: 'Reliable partner for all landlord compliance checks.' }
+];
+---
+<Base title="RapidFix Testimonials" description="Client feedback from homeowners and property managers." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing', href: '/portfolio-sites/demos/service-business/' }, { label: 'Testimonials' }]}>
+  <section class="space-y-8">
+    <h1 class="text-3xl font-bold">Trusted by property teams and homeowners</h1>
+    <div class="grid gap-6 md:grid-cols-2">
+      {testimonials.map((testimonial) => (
+        <blockquote class="rounded-3xl bg-white p-6 text-sm shadow-md dark:bg-neutral-900" data-reveal>
+          <p class="text-lg font-semibold text-primary">“{testimonial.quote}”</p>
+          <cite class="mt-4 block text-neutral-600 dark:text-neutral-300">{testimonial.name} — {testimonial.location}</cite>
+        </blockquote>
+      ))}
+    </div>
+  </section>
+</Base>

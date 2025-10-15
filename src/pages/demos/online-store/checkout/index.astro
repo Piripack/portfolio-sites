@@ -1,0 +1,14 @@
+---
+import Base from "../../../../layouts/Base.astro";
+---
+<Base title="Checkout" description="How to checkout with Nordic Threads." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Nordic Threads', href: '/portfolio-sites/demos/online-store/' }, { label: 'Checkout' }]}>
+  <article class="mx-auto max-w-3xl space-y-6 text-neutral-600 dark:text-neutral-200">
+    <h1 class="text-3xl font-bold text-neutral-900 dark:text-white" data-i18n="store.checkout.heading">Checkout information</h1>
+    <p data-i18n="store.checkout.lead">We process secure payments via Stripe. After reviewing your bag, continue to checkout to enter delivery details and apply discount codes.</p>
+    <ol class="list-decimal space-y-2 pl-6">
+      <li>Confirm delivery address within the UK mainland.</li>
+      <li>Choose standard (3-5 days) or express (1-2 days) delivery.</li>
+      <li>Receive order confirmations instantly via email.</li>
+    </ol>
+  </article>
+</Base>

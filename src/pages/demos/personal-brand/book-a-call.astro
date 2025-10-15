@@ -1,0 +1,19 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Book a Call" description="Schedule a discovery call with CareerLift." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching', href: '/portfolio-sites/demos/personal-brand/' }, { label: 'Book a call' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="coaching.book.heading">Book a discovery call</h1>
+    <p class="text-neutral-600 dark:text-neutral-200" data-i18n="coaching.book.lead">Choose a time that suits you using our Calendly widget.</p>
+    <div class="rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900">
+      <iframe
+        src="https://calendly.com/sample-coach/30min?hide_landing_page_details=1"
+        width="100%"
+        height="700"
+        title="Book a call"
+        class="w-full border-0"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+</Base>

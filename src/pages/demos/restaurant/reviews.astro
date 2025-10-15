@@ -1,0 +1,18 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="La Terra Café Reviews" description="Hear from diners." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'La Terra Café', href: '/portfolio-sites/demos/restaurant/' }, { label: 'Reviews' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="restaurant.reviews.heading">Guest reviews</h1>
+    <ul class="space-y-4">
+      <li class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <p class="text-lg font-semibold text-primary">“The brunch menu is outstanding and the staff make you feel at home.”</p>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">— Priya, Northern Quarter</p>
+      </li>
+      <li class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <p class="text-lg font-semibold text-primary">“A perfect pre-theatre dinner spot with spot-on cocktails.”</p>
+        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">— Ethan, Deansgate</p>
+      </li>
+    </ul>
+  </section>
+</Base>

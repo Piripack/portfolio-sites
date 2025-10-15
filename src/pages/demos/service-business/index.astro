@@ -1,0 +1,131 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CTA from "../../../components/astro/CTA.astro";
+import { Carousel } from "../../../components/react/Carousel";
+import { Accordion } from "../../../components/react/Accordion";
+import services from "../../../content/services/*.md";
+import { getImage } from "../../../data/media";
+
+const testimonials = [
+  { quote: 'RapidFix stopped a burst pipe flooding our shop within 30 minutes.', name: 'Leyla Khan', role: 'Retail owner' },
+  { quote: 'Transparent pricing and respectful engineers every single visit.', name: 'Gary Hughes', role: 'Facilities lead' },
+  { quote: 'The video job reports make landlord sign-off effortless.', name: 'Charlotte Peters', role: 'Property manager' }
+];
+
+const faqs = [
+  { question: 'Do you charge call-out fees?', answer: 'No call-out fee within 15 miles of Manchester city centre. Quotes are agreed before work begins.' },
+  { question: 'Are you insured?', answer: 'We carry £10m public liability cover and are Gas Safe and WaterSafe accredited.' },
+  { question: 'Can I book online?', answer: 'Yes, use the “Get a quote” form or WhatsApp us for rapid slots.' }
+];
+
+const serviceCards = services.map((service) => ({
+  slug: service.slug,
+  title: service.data.title,
+  excerpt: service.data.excerpt,
+  heroSrc: getImage(service.data.heroImageKey)
+}));
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'RapidFix Plumbing',
+  telephone: '+441617111111',
+  url: 'https://example.github.io/portfolio-sites/demos/service-business/',
+  areaServed: ['Manchester', 'Rochdale'],
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '07:00', closes: '21:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '07:00', closes: '21:00' }
+  ]
+};
+---
+<Base title="RapidFix Plumbing" description="Manchester-based emergency plumbers serving homes and businesses." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing' }]} structuredData={structuredData}>
+  <section class="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
+    <div class="space-y-6">
+      <h1 class="text-4xl font-bold" data-i18n="serviceBusiness.hero.title">Engineers on-site before the damage spreads.</h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-200" data-i18n="serviceBusiness.hero.subtitle">From burst pipes to proactive boiler care, RapidFix blends qualified engineers with live tracking so you always know who is arriving and when.</p>
+      <div class="flex flex-wrap gap-4">
+        <CTA href="tel:+441617111111" label="Call now" icon="📞" i18nKey="action.callNow" />
+        <CTA href="https://wa.me/441617111111" label="Message on WhatsApp" icon="💬" variant="secondary" i18nKey="action.messageWhatsApp" />
+        <CTA href="#quote" label="Get a quote" icon="📝" variant="ghost" i18nKey="action.quote" />
+      </div>
+      <ul class="grid gap-4 text-sm text-neutral-600 dark:text-neutral-200 sm:grid-cols-2">
+        <li class="rounded-2xl bg-primary/10 p-4" data-i18n="serviceBusiness.hero.bulletTracking">Live arrival tracking</li>
+        <li class="rounded-2xl bg-primary/10 p-4" data-i18n="serviceBusiness.hero.bulletChecks">CRB-checked engineers</li>
+        <li class="rounded-2xl bg-primary/10 p-4" data-i18n="serviceBusiness.hero.bulletGuarantee">12-month workmanship guarantee</li>
+        <li class="rounded-2xl bg-primary/10 p-4" data-i18n="serviceBusiness.hero.bulletReports">Digital service reports</li>
+      </ul>
+    </div>
+    <aside class="rounded-3xl bg-white p-6 shadow-xl dark:bg-neutral-900">
+      <h2 class="text-xl font-semibold" data-i18n="serviceBusiness.areas.heading">Areas we cover</h2>
+      <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300" data-i18n="serviceBusiness.areas.list">Manchester • Salford • Rochdale • Stockport</p>
+      <iframe
+        title="RapidFix service area"
+        class="mt-4 h-64 w-full rounded-2xl"
+        loading="lazy"
+        style="border:0"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9494.33245102058!2d-2.24665!3d53.481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1bd40c9c7d1%3A0xeadf4b3b5d8ff0!2sManchester!5e0!3m2!1sen!2suk!4v1700000000000"
+      ></iframe>
+    </aside>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="text-2xl font-semibold" data-i18n="heading.servicesOverview">Services at a glance</h2>
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      {serviceCards.map((service) => (
+        <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+          <img src={service.heroSrc} alt="" class="h-40 w-full rounded-2xl object-cover" loading="lazy" />
+          <h3 class="mt-4 text-xl font-semibold">{service.title}</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-300">{service.excerpt}</p>
+          <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary" href={`/portfolio-sites/services/${service.slug}/`}>
+            <span data-i18n="action.viewDetail">View detail</span> <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-16 grid gap-8 lg:grid-cols-[1.3fr_1fr]">
+    <div>
+      <h2 class="text-2xl font-semibold" data-i18n="heading.testimonials">Testimonials</h2>
+      <Carousel client:load slides={testimonials} />
+    </div>
+    <div>
+      <h2 class="text-2xl font-semibold" data-i18n="serviceBusiness.faqs.heading">Frequently asked questions</h2>
+      <Accordion client:load items={faqs} />
+    </div>
+  </section>
+
+  <section id="quote" class="mt-16 rounded-3xl bg-primary/10 p-8">
+    <h2 class="text-2xl font-semibold" data-i18n="heading.quoteForm">Request a tailored quote</h2>
+    <form class="mt-6 space-y-4" action="https://formspree.io/f/moqgjzqa" method="POST" data-analytics="form-rapidfix-quote">
+      <div>
+        <label class="flex flex-col gap-2 text-sm">
+          <span data-i18n="form.name">Name</span>
+          <input required name="name" type="text" class="rounded-md border border-neutral-300 px-3 py-2" />
+        </label>
+      </div>
+      <div>
+        <label class="flex flex-col gap-2 text-sm">
+          <span data-i18n="form.email">Email</span>
+          <input required name="email" type="email" class="rounded-md border border-neutral-300 px-3 py-2" />
+        </label>
+      </div>
+      <div>
+        <label class="flex flex-col gap-2 text-sm">
+          <span data-i18n="form.message">Describe the issue</span>
+          <textarea required name="message" rows="4" class="rounded-md border border-neutral-300 px-3 py-2"></textarea>
+        </label>
+      </div>
+      <label class="sr-only" aria-hidden="true">
+        <span data-i18n="form.leaveBlank">Leave this field empty</span>
+        <input type="text" name="extra" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="text-sm text-neutral-700" aria-live="polite"></div>
+      <button class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white" type="submit" data-i18n="form.submit">
+        Send request
+      </button>
+    </form>
+  </section>
+</Base>

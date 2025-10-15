@@ -1,0 +1,23 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import caseStudies from "../../../../content/case-studies/*.md";
+---
+<Base title="CareerLift Case Studies" description="Success stories from CareerLift clients." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching', href: '/portfolio-sites/demos/personal-brand/' }, { label: 'Case studies' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="coaching.caseStudies.heading">Career shifts delivered</h1>
+    <div class="grid gap-6 md:grid-cols-2">
+      {caseStudies.map((study) => (
+        <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+          <h2 class="text-xl font-semibold">{study.data.title}</h2>
+          <p class="text-sm text-neutral-600 dark:text-neutral-300">{study.data.client} — {study.data.sector}</p>
+          <ul class="mt-3 space-y-1 text-sm text-neutral-600 dark:text-neutral-300">
+            {study.data.results.map((result) => <li>• {result}</li>)}
+          </ul>
+          <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary" href={`/portfolio-sites/case-studies/${study.slug}/`}>
+            <span data-i18n="coaching.caseStudies.link">Read story</span> <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

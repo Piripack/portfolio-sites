@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getEntryBySlug } from "astro:content";
+
+const { slug } = Astro.params;
+const study = await getEntryBySlug('case-studies', slug!);
+if (!study) throw new Error('Case study not found');
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  headline: study.data.title,
+  about: study.data.sector,
+  author: {
+    '@type': 'Organization',
+    name: 'CareerLift Coaching'
+  }
+};
+---
+<Base title={`${study.data.title} | CareerLift`} description={`Results: ${study.data.results.join(', ')}`} breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching', href: '/portfolio-sites/demos/personal-brand/' }, { label: 'Case studies', href: '/portfolio-sites/demos/personal-brand/case-studies/' }, { label: study.data.title }]} structuredData={structuredData}>
+  <article class="prose prose-neutral max-w-3xl dark:prose-invert">
+    <h1>{study.data.title}</h1>
+    <p class="lead">Client: {study.data.client} — Sector: {study.data.sector}</p>
+    <ul>
+      {study.data.results.map((result) => <li>{result}</li>)}
+    </ul>
+    {study.body}
+  </article>
+</Base>

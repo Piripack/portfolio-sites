@@ -1,0 +1,17 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { Lightbox } from "../../../components/react/Lightbox";
+import { imageMap } from "../../../data/media";
+
+const images = [
+  { src: imageMap.cafeInterior, alt: 'Sunlit café interior with terrazzo tables' },
+  { src: imageMap.cafeDish, alt: 'House-made pasta with basil oil' },
+  { src: imageMap.cafeDessert, alt: 'Tiramisu affogato topped with cocoa' }
+];
+---
+<Base title="La Terra Café Gallery" description="Peek inside La Terra Café." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'La Terra Café', href: '/portfolio-sites/demos/restaurant/' }, { label: 'Gallery' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="restaurant.gallery.heading">Atmosphere & dishes</h1>
+    <Lightbox client:load images={images} />
+  </section>
+</Base>

@@ -1,0 +1,22 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import { ShopView } from "../../../../components/react/ShopView";
+import { getImage } from "../../../../data/media";
+
+const products = (await getCollection('products')).map((product) => ({
+  id: product.slug,
+  name: product.data.title,
+  category: product.data.category,
+  price: product.data.price,
+  vatRate: product.data.vatRate,
+  stock: product.data.stock,
+  image: getImage(product.data.imageKey)
+}));
+---
+<Base title="Nordic Threads Shop" description="Browse Nordic Threads apparel." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Nordic Threads', href: '/portfolio-sites/demos/online-store/' }, { label: 'Shop' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="store.shop.heading">Shop the collection</h1>
+    <ShopView client:load products={products} />
+  </section>
+</Base>

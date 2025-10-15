@@ -1,0 +1,7 @@
+[
+  { "name": "Lemon ricotta pancakes", "course": "breakfast", "price": 9.5, "description": "Served with berry compote" },
+  { "name": "Smashed avocado toast", "course": "breakfast", "price": 8, "description": "Sourdough, poached egg" },
+  { "name": "Porchetta panini", "course": "lunch", "price": 11.5, "description": "Fennel slaw, salsa verde" },
+  { "name": "Truffle mushroom risotto", "course": "dinner", "price": 15.5, "description": "Aged parmesan, thyme" },
+  { "name": "Tiramisu affogato", "course": "dinner", "price": 7.5, "description": "Marsala mascarpone" }
+]
