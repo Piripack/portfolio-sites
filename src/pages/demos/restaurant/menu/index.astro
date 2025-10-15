@@ -1,0 +1,11 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import { RestaurantMenu } from "../../../../components/react/RestaurantMenu";
+import items from "../menu.json";
+---
+<Base title="La Terra Café Menu" description="Browse breakfast, lunch, and dinner dishes." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'La Terra Café', href: '/portfolio-sites/demos/restaurant/' }, { label: 'Menu' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="restaurant.menu.heading">Seasonal menu</h1>
+    <RestaurantMenu client:load items={items} />
+  </section>
+</Base>

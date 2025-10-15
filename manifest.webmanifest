@@ -1,0 +1,17 @@
+{
+  "name": "Portfolio Sites",
+  "short_name": "Portfolio",
+  "lang": "en-GB",
+  "start_url": "/portfolio-sites/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#003366",
+  "icons": [
+    {
+      "src": "/portfolio-sites/assets/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

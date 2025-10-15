@@ -1,0 +1,9 @@
+{
+  "extends": ["html-validate:recommended"],
+  "elements": [
+    "html", "body", "header", "main", "footer", "section", "article", "nav", "form", "input", "textarea", "button"
+  ],
+  "rules": {
+    "void-style": "off"
+  }
+}

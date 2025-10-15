@@ -1,0 +1,43 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CTA from "../../../components/astro/CTA.astro";
+import { Carousel } from "../../../components/react/Carousel";
+
+const testimonials = [
+  { quote: 'The Ramos team delivered a complete rebrand site in eight days with Lighthouse scores in the 90s.', name: 'James Walker', role: 'COO, fintech startup' },
+  { quote: 'Their Astro workflow keeps content teams empowered without sacrificing performance.', name: 'Holly Edwards', role: 'Head of Marketing' }
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Ramos Digital Studio',
+  url: 'https://example.github.io/portfolio-sites/demos/agency/'
+};
+---
+<Base title="Ramos Digital Studio" description="Astro-powered marketing sites for ambitious founders." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio' }]} structuredData={structuredData}>
+  <section class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+    <div class="space-y-6">
+      <h1 class="text-4xl font-bold" data-i18n="agency.hero.title">Ship faster with Astro websites that convert.</h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-200" data-i18n="agency.hero.subtitle">We build marketing sites, product launches, and microsites with automated quality checks.</p>
+      <div class="flex flex-wrap gap-4">
+        <CTA href="/portfolio-sites/demos/agency/demos/" label="View live demos" i18nKey="action.viewLiveDemos" />
+        <CTA href="/portfolio-sites/demos/agency/pricing/" label="See pricing" variant="secondary" i18nKey="action.seePricing" />
+        <CTA href="/portfolio-sites/demos/agency/contact/" label="Book a discovery call" variant="ghost" i18nKey="action.bookDiscovery" />
+      </div>
+    </div>
+    <aside class="rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900">
+      <h2 class="text-xl font-semibold" data-i18n="agency.hero.asideHeading">What you get</h2>
+      <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+        <li data-i18n="agency.hero.bulletUx">• UX sprints with Figma handover</li>
+        <li data-i18n="agency.hero.bulletQa">• Automated Lighthouse and Playwright checks</li>
+        <li data-i18n="agency.hero.bulletTraining">• Training for your content team</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="text-2xl font-semibold" data-i18n="agency.clients.heading">Clients say</h2>
+    <Carousel client:load slides={testimonials} />
+  </section>
+</Base>

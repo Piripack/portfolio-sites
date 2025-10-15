@@ -1,0 +1,42 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CTA from "../../../components/astro/CTA.astro";
+import { Accordion } from "../../../components/react/Accordion";
+import caseStudies from "../../../content/case-studies/*.md";
+
+const faqs = [
+  { question: 'Who is CareerLift for?', answer: 'Senior managers and founders aiming for director-level roles in UK tech and services.' },
+  { question: 'How long is the programme?', answer: 'Ten weeks with weekly coaching calls, content reviews, and interview support.' }
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CareerLift Coaching',
+  url: 'https://example.github.io/portfolio-sites/demos/personal-brand/',
+  founder: 'Amelia Grant'
+};
+---
+<Base title="CareerLift Coaching" description="Executive career coaching for UK leaders." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching' }]} structuredData={structuredData}>
+  <section class="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
+    <div class="space-y-6">
+      <h1 class="text-4xl font-bold" data-i18n="coaching.hero.title">Land your next leadership role with a proven plan.</h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-200" data-i18n="coaching.hero.subtitle">CareerLift combines positioning, storytelling, and targeted outreach. We help you negotiate offers with confidence.</p>
+      <div class="flex flex-wrap gap-4">
+        <CTA href="/portfolio-sites/demos/personal-brand/programme/" label="View programme" i18nKey="action.viewProgramme" />
+        <CTA href="/portfolio-sites/demos/personal-brand/book-a-call/" label="Book a call" variant="secondary" i18nKey="action.bookCall" />
+      </div>
+    </div>
+    <aside class="rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900">
+      <h2 class="text-xl font-semibold" data-i18n="coaching.home.recentWins">Recent wins</h2>
+      <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+        {caseStudies.map((study) => <li>• {study.data.client} — {study.data.results[0]}</li>)}
+      </ul>
+    </aside>
+  </section>
+
+  <section class="mt-16 space-y-6">
+    <h2 class="text-2xl font-semibold" data-i18n="coaching.faqs.heading">Frequently asked questions</h2>
+    <Accordion client:load items={faqs} />
+  </section>
+</Base>

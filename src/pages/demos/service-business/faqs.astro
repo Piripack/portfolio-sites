@@ -1,0 +1,16 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Accordion from "../../../components/react/Accordion";
+
+const items = [
+  { question: 'What areas do you cover?', answer: 'Manchester, Rochdale, Salford, Stockport, and nearby towns. Travel charges apply beyond 25 miles.' },
+  { question: 'How do I pay?', answer: 'We accept card, bank transfer, or payment links. Digital receipts supplied instantly.' },
+  { question: 'Do you offer maintenance plans?', answer: 'Yes, choose monthly or annual plans covering servicing, compliance visits, and emergency priority.' }
+];
+---
+<Base title="RapidFix FAQs" description="Answers to common questions about RapidFix Plumbing." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing', href: '/portfolio-sites/demos/service-business/' }, { label: 'FAQs' }]}>
+  <section class="space-y-8">
+    <h1 class="text-3xl font-bold" data-i18n="serviceBusiness.faqs.heading">Frequently asked questions</h1>
+    <Accordion client:load items={items} />
+  </section>
+</Base>

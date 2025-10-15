@@ -1,0 +1,35 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Contact CareerLift" description="Contact details for CareerLift Coaching." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching', href: '/portfolio-sites/demos/personal-brand/' }, { label: 'Contact' }]}>
+  <section class="grid gap-8 md:grid-cols-2">
+    <div class="space-y-4">
+      <h1 class="text-3xl font-bold" data-i18n="coaching.contact.heading">Let&apos;s lift your career</h1>
+      <p class="text-neutral-600 dark:text-neutral-200" data-i18n="coaching.contact.lead">Share your goals and we&apos;ll tailor a plan.</p>
+      <ul class="space-y-2 text-sm">
+        <li><strong data-i18n="coaching.contact.emailLabel">Email:</strong> <a class="hover:underline" href="mailto:hello@careerlift.co.uk">hello@careerlift.co.uk</a></li>
+        <li><strong data-i18n="coaching.contact.phoneLabel">Phone:</strong> <a class="hover:underline" href="tel:+447700900123">+44 7700 900123</a></li>
+      </ul>
+    </div>
+    <form class="space-y-4 rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900" action="https://formspree.io/f/xknlkgee" method="POST" data-analytics="form-careerlift-contact">
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.name">Name</span>
+        <input required type="text" name="name" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.email">Email</span>
+        <input required type="email" name="email" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="coaching.contact.form.goalLabel">Career goal</span>
+        <textarea required name="goal" rows="4" class="rounded-md border border-neutral-300 px-3 py-2"></textarea>
+      </label>
+      <label class="sr-only" aria-hidden="true">
+        Leave blank
+        <input type="text" name="extra" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="text-sm" aria-live="polite"></div>
+      <button class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white" type="submit" data-i18n="coaching.contact.form.submit">Send message</button>
+    </form>
+  </section>
+</Base>

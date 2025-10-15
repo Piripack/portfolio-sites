@@ -1,0 +1,18 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Areas We Cover" description="RapidFix Plumbing covers Manchester, Rochdale, and surrounding towns." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing', href: '/portfolio-sites/demos/service-business/' }, { label: 'Areas we cover' }]}>
+  <section class="space-y-8">
+    <h1 class="text-3xl font-bold" data-i18n="serviceBusiness.areasPage.heading">Greater Manchester coverage</h1>
+    <p class="max-w-2xl text-neutral-600 dark:text-neutral-200">Our base in Ancoats keeps us within 30 minutes of Manchester, Rochdale, Stockport, Salford, Oldham, and Bury. Travel beyond this radius is available by arrangement.</p>
+    <iframe
+      title="Greater Manchester map"
+      class="h-96 w-full rounded-3xl"
+      loading="lazy"
+      style="border:0"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18991.446!2d-2.247!3d53.4808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1bd40c9c7d1%3A0xeadf4b3b5d8ff0!2sManchester!5e0!3m2!1sen!2suk!4v1700000000001"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </section>
+</Base>

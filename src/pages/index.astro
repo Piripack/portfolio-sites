@@ -1,0 +1,103 @@
+---
+import Base from "../layouts/Base.astro";
+import CTA from "../components/astro/CTA.astro";
+import Card from "../components/astro/Card.astro";
+
+const breadcrumbs = [{ label: 'Home' }];
+const features = [
+  {
+    eyebrow: 'Performance',
+    heading: 'Core Web Vitals obsessed',
+    description: 'Astro MPA architecture with hydrated islands keeps LCP, CLS, and INP within Lighthouse elite targets.',
+    icon: '⚡'
+  },
+  {
+    eyebrow: 'Accessibility',
+    heading: 'AA-compliant journeys',
+    description: 'Semantic landmarks, keyboard-friendly menus, and WCAG contrast ensure every visitor has a smooth path.',
+    icon: '♿'
+  },
+  {
+    eyebrow: 'Automation',
+    heading: 'CI for every deploy',
+    description: 'Pages, Lighthouse CI, html-validate, and Playwright smoke tests ship with the repo.',
+    icon: '🤖'
+  }
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'portfolio-sites',
+  url: 'https://example.github.io/portfolio-sites/',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Manchester',
+    addressCountry: 'GB'
+  },
+  sameAs: ['https://www.linkedin.com'],
+  makesOffer: ['Service business websites', 'Restaurant microsites', 'Coaching funnels', 'E-commerce storefronts', 'Agency marketing sites']
+};
+---
+<Base title="Portfolio Sites" description="Production-grade Astro + React islands demos for UK brands." breadcrumbs={breadcrumbs} structuredData={structuredData}>
+  <section class="grid gap-10 lg:grid-cols-[2fr_1fr]">
+    <div class="space-y-6">
+      <p class="text-sm uppercase tracking-[0.4em] text-primary" data-i18n="home.hero.eyebrow">Astro multi-brand demo</p>
+      <h1 class="text-4xl font-bold leading-tight text-neutral-900 dark:text-white" data-i18n="home.hero.title">Five ready-to-launch website blueprints for UK service businesses.</h1>
+      <p class="text-lg text-neutral-600 dark:text-neutral-200" data-i18n="home.hero.subtitle">
+        Each demo blends Astro server rendering with minimal React islands so you get sub-2.5 second LCP, resilient accessibility, and delightful interactions. Clone, customise, deploy to GitHub Pages.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <CTA href="#demos" label="Browse demos" analytics="cta-overview-demos" i18nKey="action.browseDemos" />
+        <CTA href="https://github.com/example/portfolio-sites" label="View repository" variant="secondary" analytics="cta-overview-repo" i18nKey="action.viewRepo" />
+      </div>
+      <dl class="grid gap-4 text-sm text-neutral-600 dark:text-neutral-200 sm:grid-cols-2">
+        <div>
+          <dt class="font-semibold">Performance goals</dt>
+          <dd>LCP &lt; 2.5s • CLS &lt; 0.1 • INP &lt; 200ms</dd>
+        </div>
+        <div>
+          <dt class="font-semibold">Accessibility</dt>
+          <dd>Skip link • Focus rings • Reduced motion</dd>
+        </div>
+      </dl>
+    </div>
+    <aside class="rounded-3xl bg-primary/10 p-6 text-sm text-primary">
+      <h2 class="text-lg font-semibold text-primary">Included in every build</h2>
+      <ul class="mt-4 space-y-3 text-neutral-700 dark:text-neutral-100">
+        <li>• CSS variable theme system with five palettes</li>
+        <li>• Cloudflare Web Analytics events for CTA and forms</li>
+        <li>• Formspree contact forms with validation + honeypot</li>
+        <li>• PWA-lite service worker & offline page</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section id="demos" class="mt-16 space-y-8">
+    <h2 class="text-3xl font-semibold" data-i18n="heading.demoLineUp">Demo line-up</h2>
+    <p class="text-neutral-600 dark:text-neutral-200">Pick a blueprint tailored to your sector and reuse the components across engagements.</p>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Card eyebrow="Plumbing" heading="RapidFix Plumbing" description="Emergency response and planned works with smart booking." href="/portfolio-sites/demos/service-business/" icon="🚿" />
+      <Card eyebrow="Restaurant" heading="La Terra Café" description="Day-to-night menus, reservations, and ambience gallery." href="/portfolio-sites/demos/restaurant/" icon="☕" />
+      <Card eyebrow="Coaching" heading="CareerLift Coaching" description="Programme detail, success stories, and Calendly booking." href="/portfolio-sites/demos/personal-brand/" icon="🎯" />
+      <Card eyebrow="Retail" heading="Nordic Threads" description="Modern ecommerce with persistent cart and filters." href="/portfolio-sites/demos/online-store/" icon="🛍️" />
+      <Card eyebrow="Agency" heading="Ramos Digital Studio" description="Pitch-ready portfolio with blog and testimonials." href="/portfolio-sites/demos/agency/" icon="🎨" />
+    </div>
+  </section>
+
+  <section class="mt-16 grid gap-6 md:grid-cols-3">
+    {features.map((feature) => <Card {...feature} />)}
+  </section>
+
+  <section class="mt-16 rounded-3xl bg-neutral-900 p-10 text-white">
+    <div class="space-y-6">
+      <h2 class="text-3xl font-semibold" data-i18n="heading.howToUse">How to use this repo</h2>
+      <ol class="list-decimal space-y-3 pl-6 text-sm">
+        <li>Clone the repo and run <code>pnpm install</code>.</li>
+        <li>Update content in <code>src/content</code> and sector pages.</li>
+        <li>Configure GitHub Pages with the included workflow.</li>
+        <li>Review Lighthouse CI reports from the provided workflow.</li>
+      </ol>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,30 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getEntryBySlug } from "astro:content";
+import { getImage } from "../../data/media";
+
+const { slug } = Astro.params;
+const service = await getEntryBySlug('services', slug!);
+if (!service) throw new Error('Service not found');
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.data.title,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'RapidFix Plumbing'
+  },
+  areaServed: ['Manchester', 'Rochdale']
+};
+---
+const heroSrc = getImage(service.data.heroImageKey);
+
+<Base title={`${service.data.title} | RapidFix Plumbing`} description={service.data.excerpt} breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing', href: '/portfolio-sites/demos/service-business/' }, { label: service.data.title }]} structuredData={structuredData}>
+  <article class="prose prose-neutral max-w-3xl dark:prose-invert">
+    <img src={heroSrc} alt="" class="mb-6 h-64 w-full rounded-3xl object-cover" loading="lazy" />
+    <h1>{service.data.title}</h1>
+    <p class="lead">{service.data.excerpt}</p>
+    {service.body}
+  </article>
+</Base>

@@ -1,0 +1,22 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Ramos Process" description="Our delivery process." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio', href: '/portfolio-sites/demos/agency/' }, { label: 'Process' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="agency.process.heading">Delivery timeline</h1>
+    <ol class="space-y-4">
+      <li class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <h2 class="text-xl font-semibold" data-i18n="agency.process.discoveryTitle">Discovery (Week 1)</h2>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="agency.process.discoveryCopy">Workshops, analytics review, and success metric definition.</p>
+      </li>
+      <li class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <h2 class="text-xl font-semibold" data-i18n="agency.process.designTitle">Design & copy (Weeks 2-3)</h2>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="agency.process.designCopy">Wireframes, visual concepts, and conversion-focused messaging.</p>
+      </li>
+      <li class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+        <h2 class="text-xl font-semibold" data-i18n="agency.process.buildTitle">Build & QA (Weeks 4-5)</h2>
+        <p class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="agency.process.buildCopy">Astro build, automated testing, stakeholder reviews, and training.</p>
+      </li>
+    </ol>
+  </section>
+</Base>

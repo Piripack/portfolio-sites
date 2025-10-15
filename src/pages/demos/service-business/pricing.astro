@@ -1,0 +1,26 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const plans = [
+  { name: 'Emergency call-out', price: '£89', details: ['Includes first hour on-site', '24/7 availability', 'Photo and video report'] },
+  { name: 'Boiler care plan', price: '£19/mo', details: ['Annual service', 'Priority response', '10% spare parts discount'] },
+  { name: 'Landlord package', price: '£249', details: ['CP12 gas safety certificate', 'Smoke alarm testing', 'Portfolio reporting'] }
+];
+---
+<Base title="RapidFix Plumbing Pricing" description="Transparent plumbing rates for emergency and planned work." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'RapidFix Plumbing', href: '/portfolio-sites/demos/service-business/' }, { label: 'Pricing' }]}>
+  <section class="space-y-8">
+    <h1 class="text-3xl font-bold" data-i18n="serviceBusiness.pricing.heading">Flexible pricing without hidden extras</h1>
+    <p class="text-neutral-600 dark:text-neutral-200" data-i18n="serviceBusiness.pricing.lead">All prices include travel within Greater Manchester. VAT itemised on invoices.</p>
+    <div class="grid gap-6 md:grid-cols-3">
+      {plans.map((plan) => (
+        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900" data-reveal>
+          <h2 class="text-xl font-semibold">{plan.name}</h2>
+          <p class="mt-2 text-3xl font-bold text-primary">{plan.price}</p>
+          <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            {plan.details.map((detail) => <li>• {detail}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,25 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+const tiers = [
+  { name: 'Launch', price: '£4,800', features: ['Single-page site', 'Copywriting support', 'Two-week turnaround'] },
+  { name: 'Growth', price: '£8,900', features: ['Up to 6 pages', 'Blog setup', 'Automated testing suite'] },
+  { name: 'Scale', price: '£12,500', features: ['Complex integrations', 'Design system', 'Ongoing optimisation'] }
+];
+---
+<Base title="Ramos Pricing" description="Pricing tiers for Ramos Digital Studio." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio', href: '/portfolio-sites/demos/agency/' }, { label: 'Pricing' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="agency.pricing.heading">Packages designed for momentum</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {tiers.map((tier) => (
+        <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+          <h2 class="text-xl font-semibold">{tier.name}</h2>
+          <p class="mt-2 text-3xl font-bold text-primary">{tier.price}</p>
+          <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+            {tier.features.map((feature) => <li>• {feature}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

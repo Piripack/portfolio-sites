@@ -1,0 +1,10 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { BagSummary } from "../../../components/react/BagSummary";
+---
+<Base title="Your Bag" description="Review your Nordic Threads items." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Nordic Threads', href: '/portfolio-sites/demos/online-store/' }, { label: 'Bag' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="store.bag.heading">Your bag</h1>
+    <BagSummary client:load />
+  </section>
+</Base>

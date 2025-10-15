@@ -1,0 +1,16 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { Accordion } from "../../../components/react/Accordion";
+
+const items = [
+  { question: 'Do you work remotely?', answer: 'Yes, all sessions take place via secure video calls with recordings available.' },
+  { question: 'Is there a cohort?', answer: 'The programme is one-to-one so you receive tailored support.' },
+  { question: 'Can my employer sponsor me?', answer: 'Absolutely, we provide invoices and business case templates.' }
+];
+---
+<Base title="CareerLift FAQs" description="Frequently asked questions about CareerLift Coaching." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching', href: '/portfolio-sites/demos/personal-brand/' }, { label: 'FAQs' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="coaching.faqs.heading">Frequently asked questions</h1>
+    <Accordion client:load items={items} />
+  </section>
+</Base>

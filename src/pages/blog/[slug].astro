@@ -1,0 +1,26 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getEntryBySlug } from "astro:content";
+
+const { slug } = Astro.params;
+const post = await getEntryBySlug('blog', slug!);
+if (!post) throw new Error('Blog post not found');
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  author: {
+    '@type': 'Person',
+    name: post.data.author
+  },
+  datePublished: post.data.published
+};
+---
+<Base title={`${post.data.title} | Ramos Digital Studio`} description={post.data.excerpt} breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio', href: '/portfolio-sites/demos/agency/' }, { label: 'Blog', href: '/portfolio-sites/demos/agency/blog/' }, { label: post.data.title }]} structuredData={structuredData}>
+  <article class="prose prose-neutral max-w-3xl dark:prose-invert">
+    <h1>{post.data.title}</h1>
+    <p class="lead">By {post.data.author} — {post.data.published}</p>
+    {post.body}
+  </article>
+</Base>

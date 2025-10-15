@@ -1,0 +1,35 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Contact Ramos" description="Get in touch with Ramos Digital Studio." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio', href: '/portfolio-sites/demos/agency/' }, { label: 'Contact' }]}>
+  <section class="grid gap-8 md:grid-cols-2">
+    <div class="space-y-4">
+      <h1 class="text-3xl font-bold" data-i18n="agency.contact.heading">Ready to launch?</h1>
+      <p class="text-neutral-600 dark:text-neutral-200" data-i18n="agency.contact.lead">Tell us about your goals and we&apos;ll shape a proposal.</p>
+      <ul class="space-y-2 text-sm">
+        <li><strong data-i18n="serviceBusiness.contact.emailLabel">Email:</strong> <a class="hover:underline" href="mailto:hello@ramos.studio">hello@ramos.studio</a></li>
+        <li><strong data-i18n="serviceBusiness.contact.phoneLabel">Phone:</strong> <a class="hover:underline" href="tel:+441612220101">+44 161 222 0101</a></li>
+      </ul>
+    </div>
+    <form class="space-y-4 rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900" action="https://formspree.io/f/mzzpejny" method="POST" data-analytics="form-ramos-contact">
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.name">Name</span>
+        <input required type="text" name="name" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="agency.contact.form.company">Company</span>
+        <input type="text" name="company" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="agency.contact.form.goals">Project goals</span>
+        <textarea required name="goals" rows="4" class="rounded-md border border-neutral-300 px-3 py-2"></textarea>
+      </label>
+      <label class="sr-only" aria-hidden="true">
+        Leave blank
+        <input type="text" name="extra" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="text-sm" aria-live="polite"></div>
+      <button class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white" type="submit" data-i18n="agency.contact.form.submit">Send brief</button>
+    </form>
+  </section>
+</Base>

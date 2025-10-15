@@ -1,0 +1,16 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { getPdf } from "../../../data/media";
+---
+<Base title="CareerLift Resources" description="Download coaching resources." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'CareerLift Coaching', href: '/portfolio-sites/demos/personal-brand/' }, { label: 'Resources' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="coaching.resources.heading">Free resources</h1>
+    <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+      <h2 class="text-xl font-semibold" data-i18n="coaching.resources.playbookTitle">Career storytelling playbook</h2>
+      <p class="text-sm text-neutral-600 dark:text-neutral-300" data-i18n="coaching.resources.playbookDescription">A step-by-step PDF guide to framing your leadership achievements.</p>
+      <a class="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white" href={getPdf('careerliftPlaybook')} download="careerlift-playbook.pdf" data-i18n="coaching.resources.download">
+        Download PDF
+      </a>
+    </article>
+  </section>
+</Base>

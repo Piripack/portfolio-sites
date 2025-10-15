@@ -1,0 +1,20 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import posts from "../../../../content/blog/*.md";
+---
+<Base title="Ramos Blog" description="Insights from Ramos Digital Studio." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Ramos Digital Studio', href: '/portfolio-sites/demos/agency/' }, { label: 'Blog' }]}>
+  <section class="space-y-6">
+    <h1 class="text-3xl font-bold" data-i18n="agency.blog.heading">Latest articles</h1>
+    <div class="space-y-4">
+      {posts.map((post) => (
+        <article class="rounded-3xl bg-white p-6 shadow-md dark:bg-neutral-900" data-reveal>
+          <h2 class="text-xl font-semibold">{post.data.title}</h2>
+          <p class="text-sm text-neutral-600 dark:text-neutral-300">{post.data.excerpt}</p>
+          <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary" href={`/portfolio-sites/blog/${post.slug}/`}>
+            <span data-i18n="agency.blog.readPost">Read post</span> <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

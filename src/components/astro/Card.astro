@@ -1,0 +1,17 @@
+---
+const { heading, description, href, eyebrow, icon } = Astro.props;
+---
+<article class="group rounded-3xl border border-white/20 bg-white/70 p-6 shadow-lg backdrop-blur dark:border-white/10 dark:bg-white/10" data-reveal>
+  <div class="flex items-center justify-between gap-4">
+    <p class="text-xs uppercase tracking-[0.2em] text-primary">{eyebrow}</p>
+    {icon && <span class="text-2xl" aria-hidden="true">{icon}</span>}
+  </div>
+  <h3 class="mt-3 text-xl font-bold text-neutral-900 dark:text-white">{heading}</h3>
+  <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-200">{description}</p>
+  {href && (
+    <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:gap-3" href={href}>
+      <span>Explore</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  )}
+</article>

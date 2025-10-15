@@ -1,0 +1,35 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="Contact Nordic Threads" description="Contact details for Nordic Threads." breadcrumbs={[{ label: 'Home', href: '/portfolio-sites/' }, { label: 'Nordic Threads', href: '/portfolio-sites/demos/online-store/' }, { label: 'Contact' }]}>
+  <section class="grid gap-8 md:grid-cols-2">
+    <div class="space-y-4">
+      <h1 class="text-3xl font-bold" data-i18n="store.contact.heading">Support for every order</h1>
+      <p class="text-neutral-600 dark:text-neutral-200" data-i18n="store.contact.lead">Reach out for sizing, shipping updates, or returns assistance.</p>
+      <ul class="space-y-2 text-sm">
+        <li><strong data-i18n="store.contact.emailLabel">Email:</strong> <a class="hover:underline" href="mailto:hello@nordicthreads.co.uk">hello@nordicthreads.co.uk</a></li>
+        <li><strong data-i18n="store.contact.phoneLabel">Phone:</strong> <a class="hover:underline" href="tel:+441613330000">+44 161 333 0000</a></li>
+      </ul>
+    </div>
+    <form class="space-y-4 rounded-3xl bg-white p-6 shadow-lg dark:bg-neutral-900" action="https://formspree.io/f/mzbledww" method="POST" data-analytics="form-nordic-contact">
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.name">Name</span>
+        <input required type="text" name="name" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="store.contact.form.orderLabel">Order number</span>
+        <input type="text" name="order" class="rounded-md border border-neutral-300 px-3 py-2" />
+      </label>
+      <label class="flex flex-col gap-2 text-sm">
+        <span data-i18n="form.message">Message</span>
+        <textarea required name="message" rows="4" class="rounded-md border border-neutral-300 px-3 py-2"></textarea>
+      </label>
+      <label class="sr-only" aria-hidden="true">
+        Leave blank
+        <input type="text" name="extra" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="text-sm" aria-live="polite"></div>
+      <button class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white" type="submit" data-i18n="store.contact.form.submit">Send request</button>
+    </form>
+  </section>
+</Base>
